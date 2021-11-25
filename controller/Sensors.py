@@ -119,9 +119,3 @@ class Sensors:
         @r.setter
         def r(self, r):
             self._r = r
-
-
-humedad = Sensors().Humedad()
-print(humedad.h)
-humedad.h = 32
-print(humedad.h)

@@ -8,6 +8,13 @@ function actualizar(){
     var vel = document.getElementById("Velocidad");
     var dir = document.getElementById("Direccion");
     var roc = document.getElementById("Rocio");
+    var h = document.getElementById("h");
+    var t = document.getElementById("t");
+    var s = document.getElementById("s");
+    var p = document.getElementById("p");
+    var v = document.getElementById("v");
+    var d = document.getElementById("d");
+    var r = document.getElementById("r");
 
     const websocket = new WebSocket("ws://localhost:5678/");
     websocket.onmessage = ({ data }) => {
@@ -21,5 +28,13 @@ function actualizar(){
         press.innerHTML = obj.press + "hPa";
         vel.innerHTML = obj.vel + "m/s";
         dir.innerHTML = obj.dir + "°";
+        h.innerHTML = obj.hu + "g/m3";
+        t.innerHTML = obj.te.toFixed(2) + "°C";
+        s.innerHTML = obj.st.toFixed(2) + "°C";
+        r.innerHTML = obj.pr.toFixed(2) + "°C";
+        p.innerHTML = obj.pa + "hPa";
+        v.innerHTML = obj.vv + "m/s";
+        d.innerHTML = obj.dv + "°";
+
     };
 }

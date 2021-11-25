@@ -1,4 +1,4 @@
-from Sensors import Sensors
+from controller.Sensors import Sensors
 import requests
 
 
@@ -13,6 +13,10 @@ class Sampler:
         self._r = Sensors.Rocio()
         self._h = Sensors.Humedad()
         self._p = Sensors.Presion()
+        self._api = ''
+        self._var = ''
+
+    def peticion(self):
         self._api = requests.get("https://api.openweathermap.org/data/2.5/onecall?lat=18.85&lon=-97.1&exclude=hourly,minutely&appid=75b14024248b0bd503079edfc127842c")
         self._api = self._api.json()
         self._var = self._api['daily']
@@ -27,7 +31,8 @@ class Sampler:
                             self.d = self.i['wind_deg']
                     if tipo == 'dew_point':
                         if self.r < self.i[self.x]:
-                            self.r = self.i[self.x]
+                            self._c = float(self.i[self.x] - 273.15)
+                            self.r = self._c
                     if tipo == 'humidity':
                         if self.h < self.i[self.x]:
                             self.h = self.i[self.x]
@@ -43,10 +48,12 @@ class Sampler:
                     for self.n in self._j:
                         if tipo == 'feels_like':
                             if self.s < self._j[self.n]:
-                                self.s = self._j[self.n]
+                                self._c = float(self._j[self.n] - 273.15)
+                                self.s = self._c
                         if tipo == 'temp':
                             if self.t < self._j[self.n]:
-                                self.t = self._j[self.n]
+                                self._c = float(self._j[self.n] - 273.15)
+                                self.t = self._c
 
     @property
     def d(self):
@@ -104,32 +111,3 @@ class Sampler:
     def p(self, p):
         self._p.p = p
 
-
-s = Sampler()
-s.uno('wind_speed')
-s.uno('dew_point')
-s.uno('humidity')
-s.dos('feels_like')
-s.dos('temp')
-s.uno('pressure')
-print(s.v)
-print(s.d)
-print(s.s)
-print(s.t)
-print(s.r)
-print(s.h)
-print(s.p)
-'''
-api = requests.get("https://api.openweathermap.org/data/2.5/onecall?lat=18.85&lon=-97.1&exclude=hourly,minutely&appid=75b14024248b0bd503079edfc127842c")
-api = api.json()
-api = api['daily']
-print(api)
-var = 0
-for i in api:
-    for x in i:
-        if x == 'temp':
-            print(i[x])
-            var = i[x]
-            for n in var:
-                print(var[n])
-'''
