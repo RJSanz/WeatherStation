@@ -1,13 +1,134 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="es" xmlns="http://www.w3.org/1999/html">
     <head>
-        <link rel="stylesheet" href="css/LCDDevice.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!--link rel="stylesheet" href="css/LCDDevice.css"-->
+        <link rel="icon" type="image/png" href="favicon.png"/>
         <title>Weather Monitoring Station</title>
     </head>
     <body>
-        <div class="estacion">
-            <h1>Estación de Monitoreo del Clima</h1>
+        <main>
+            <div class="container py-4">
+                <header class="pb-3 mb-4 border-bottom">
+                    <a href="LCDDevice.html" class="d-flex align-items-center text-dark text-decoration-none">
+                        <img src="/assets/img/clima-cloud.png" alt="ICON" style="height: 2rem; width: 2rem;"/>&nbsp;&nbsp;
+                        <span class="fs-4">Estación de Monitoreo del Clima</span>
+                    </a>
+                </header>
+                <!--div class="row">
+                    <div class="col-6">
+                        <div class="table-responsive">
+                            <h2>Orizaba, MX</h2>
+                            <table class="table table-dark table-striped">
+                                <tr class="table-dark">
+                                    <th><h3>Fecha:</h3></th>
+                                    <th><p id="Fecha"> </p></th>
+                                    <th><h3>Maximos 24 hrs</h3> </th>
+                                </tr>
+                                <tr>
+                                    <th><h3>Hora:</h3></th>
+                                    <td><p id="Hora"> </p></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Dirección del Viento:</h3></th>
+                                    <td><p id="Direccion"> </p></td>
+                                    <td> <p id="d"></p> </td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Velocidad del Viento:</h3></th>
+                                    <td><p id="Velocidad"> </p></td>
+                                    <td> <p id="v"></p> </td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Sensación Térmica:</h3></th>
+                                    <td><p id="Sensacion"> </p></td>
+                                    <td><p id="s"> </p></td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Temperatura:</h3></th>
+                                    <td><p id="Temperatura"> </p></td>
+                                    <td><p id="t"> </p></td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Punto de Rocío:</h3></th>
+                                    <td><p id="Rocio"> </p></td>
+                                    <td><p id="r"> </p></td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Humedad:</h3></th>
+                                    <td><p id="Humedad"> </p></td>
+                                    <td><p id="h"> </p></td>
+                                </tr>
+                                <tr>
+                                    <th><h3>Presión Atmosférica:</h3></th>
+                                    <td><p id="Presion"> </p></td>
+                                    <td><p id="p"> </p></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <iframe class="mt-5" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-97.18935012817384%2C18.804755617191407%2C-97.05785751342775%2C18.902551249301677&amp;layer=hot" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/18.8537/-97.1236&amp;layers=H">Ver mapa más grande</a></small>
+                    </div>
+                </div-->
+                <div class="table-responsive">
+                    <h2>Orizaba, MX</h2>
+                    <table class="table table-dark table-striped">
+                        <tr class="table-dark">
+                            <th><h3>Fecha:</h3></th>
+                            <th><p id="Fecha"> </p></th>
+                            <th><h3>Maximos 24 hrs</h3> </th>
+                        </tr>
+                        <tr>
+                            <th><h3>Hora:</h3></th>
+                            <td><p id="Hora"> </p></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><h3>Dirección del Viento:</h3></th>
+                            <td><p id="Direccion"> </p></td>
+                            <td> <p id="d"></p> </td>
+                        </tr>
+                        <tr>
+                            <th><h3>Velocidad del Viento:</h3></th>
+                            <td><p id="Velocidad"> </p></td>
+                            <td> <p id="v"></p> </td>
+                        </tr>
+                        <tr>
+                            <th><h3>Sensación Térmica:</h3></th>
+                            <td><p id="Sensacion"> </p></td>
+                            <td><p id="s"> </p></td>
+                        </tr>
+                        <tr>
+                            <th><h3>Temperatura:</h3></th>
+                            <td><p id="Temperatura"> </p></td>
+                            <td><p id="t"> </p></td>
+                        </tr>
+                        <tr>
+                            <th><h3>Punto de Rocío:</h3></th>
+                            <td><p id="Rocio"> </p></td>
+                            <td><p id="r"> </p></td>
+                        </tr>
+                        <tr>
+                            <th><h3>Humedad:</h3></th>
+                            <td><p id="Humedad"> </p></td>
+                            <td><p id="h"> </p></td>
+                        </tr>
+                        <tr>
+                            <th><h3>Presión Atmosférica:</h3></th>
+                            <td><p id="Presion"> </p></td>
+                            <td><p id="p"> </p></td>
+                        </tr>
+                      </table>
+                </div>
+            </div>
+        </main>
+        <!--div class="estacion">
+            <h2>Orizaba, MX</h2>
             <table class="table table-striped">
                 <tr>
                     <th><h3>Fecha:</h3></th>
@@ -53,10 +174,12 @@
                     <td><p id="p"> </p></td>
                 </tr>
             </table>
-        </div>
+        </div-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script src="js/LCDDevice.js"></script>
-    <script type="text/javascript">
-        setInterval("actualizar()",1000);
-    </script>
+        <script type="text/javascript">
+            setInterval("actualizar()", 1000 * 60 * 60);
+        </script>
     </body>
 </html>
