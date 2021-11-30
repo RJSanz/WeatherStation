@@ -16,37 +16,54 @@ function actualizar(){
     var d = document.getElementById("d");
     var r = document.getElementById("r");
 
-    var di = document.getElementById("di").value
+    var di = document.getElementById("di").value;
+    var vi = document.getElementById("vi").value;
+    var si = document.getElementById("si").value;
+    var ti = document.getElementById("ti").value;
+    var ri = document.getElementById("ri").value;
+    var hi = document.getElementById("hi").value;
+    var pi = document.getElementById("pi").value;
 
     const websocket = new WebSocket("ws://localhost:5678/");
     websocket.onmessage = ({ data }) => {
         const obj = JSON.parse(data);
         fecha.innerHTML = obj.fecha;
         hora.innerHTML = obj.hora;
-        humedad.innerHTML = obj.humedad + "g/m3";
-        temp.innerHTML = obj.temp.toFixed(2) + "°C";
-        sens.innerHTML = obj.sens.toFixed(2) + "°C";
-        roc.innerHTML = obj.roc.toFixed(2) + "°C";
-        press.innerHTML = obj.press + "hPa";
-        vel.innerHTML = obj.vel + "m/s";
+
         if(di == "desconecta"){
             dir.innerHTML = obj.dir + "°";
             d.innerHTML = obj.dv + "°";
         }
-        h.innerHTML = obj.hu + "g/m3";
-        t.innerHTML = obj.te.toFixed(2) + "°C";
-        s.innerHTML = obj.st.toFixed(2) + "°C";
-        r.innerHTML = obj.pr.toFixed(2) + "°C";
-        p.innerHTML = obj.pa + "hPa";
-        v.innerHTML = obj.vv + "m/s";
-
+        if(vi == "desconecta"){
+            vel.innerHTML = obj.vel + "m/s";
+            v.innerHTML = obj.vv + "m/s";
+        }
+        if(si == "desconecta"){
+            sens.innerHTML = obj.sens.toFixed(2) + "°C";
+            s.innerHTML = obj.st.toFixed(2) + "°C";
+        }
+        if(ti == "desconecta"){
+             temp.innerHTML = obj.temp.toFixed(2) + "°C";
+             t.innerHTML = obj.te.toFixed(2) + "°C";
+        }
+        if(ri == "desconecta"){
+            roc.innerHTML = obj.roc.toFixed(2) + "°C";
+            r.innerHTML = obj.pr.toFixed(2) + "°C";
+        }
+        if(hi == "desconecta"){
+            humedad.innerHTML = obj.humedad + "g/m3";
+            h.innerHTML = obj.hu + "g/m3";
+        }
+        if(pi == "desconecta"){
+            press.innerHTML = obj.press + "hPa";
+            p.innerHTML = obj.pa + "hPa";
+        }
 
     };
 }
 
 function dv(){
     var di = document.getElementById("di").value;
-    alert(di);
     if(di == "desconecta"){
         document.getElementById("Direccion").innerHTML = "Desconectado";
         document.getElementById("d").innerHTML = "Desconectado";
@@ -56,6 +73,95 @@ function dv(){
     else{
         document.getElementById("di").innerHTML = "Desconectar";
         document.getElementById("di").value = "desconecta";
+    }
+
+}
+function vv(){
+    var di = document.getElementById("vi").value;
+    if(di == "desconecta"){
+        document.getElementById("Velocidad").innerHTML = "Desconectado";
+        document.getElementById("v").innerHTML = "Desconectado";
+        document.getElementById("vi").innerHTML = "Conectar";
+        document.getElementById("vi").value = "conecta";
+    }
+    else{
+        document.getElementById("vi").innerHTML = "Desconectar";
+        document.getElementById("vi").value = "desconecta";
+    }
+
+}
+
+function st(){
+    var di = document.getElementById("si").value;
+    if(di == "desconecta"){
+        document.getElementById("Sensacion").innerHTML = "Desconectado";
+        document.getElementById("s").innerHTML = "Desconectado";
+        document.getElementById("si").innerHTML = "Conectar";
+        document.getElementById("si").value = "conecta";
+    }
+    else{
+        document.getElementById("si").innerHTML = "Desconectar";
+        document.getElementById("si").value = "desconecta";
+    }
+
+}
+
+function te(){
+    var di = document.getElementById("ti").value;
+    if(di == "desconecta"){
+        document.getElementById("Temperatura").innerHTML = "Desconectado";
+        document.getElementById("t").innerHTML = "Desconectado";
+        document.getElementById("ti").innerHTML = "Conectar";
+        document.getElementById("ti").value = "conecta";
+    }
+    else{
+        document.getElementById("ti").innerHTML = "Desconectar";
+        document.getElementById("ti").value = "desconecta";
+    }
+
+}
+
+function pr(){
+    var di = document.getElementById("ri").value;
+    if(di == "desconecta"){
+        document.getElementById("Rocio").innerHTML = "Desconectado";
+        document.getElementById("r").innerHTML = "Desconectado";
+        document.getElementById("ri").innerHTML = "Conectar";
+        document.getElementById("ri").value = "conecta";
+    }
+    else{
+        document.getElementById("ri").innerHTML = "Desconectar";
+        document.getElementById("ri").value = "desconecta";
+    }
+
+}
+
+function hu(){
+    var di = document.getElementById("hi").value;
+    if(di == "desconecta"){
+        document.getElementById("Humedad").innerHTML = "Desconectado";
+        document.getElementById("h").innerHTML = "Desconectado";
+        document.getElementById("hi").innerHTML = "Conectar";
+        document.getElementById("hi").value = "conecta";
+    }
+    else{
+        document.getElementById("hi").innerHTML = "Desconectar";
+        document.getElementById("hi").value = "desconecta";
+    }
+
+}
+
+function pa(){
+    var di = document.getElementById("pi").value;
+    if(di == "desconecta"){
+        document.getElementById("Presion").innerHTML = "Desconectado";
+        document.getElementById("p").innerHTML = "Desconectado";
+        document.getElementById("pi").innerHTML = "Conectar";
+        document.getElementById("pi").value = "conecta";
+    }
+    else{
+        document.getElementById("pi").innerHTML = "Desconectar";
+        document.getElementById("pi").value = "desconecta";
     }
 
 }
