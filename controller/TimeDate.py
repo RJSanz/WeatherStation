@@ -18,11 +18,4 @@ class TimeDate(Timer):
     def fecha(self):
         self.date = str(self.date.day) + '/' + str(self.date.month) + '/' + str(self.date.year)
 
-    @property
-    def hour(self):
-        return self.hora
-
-    @hour.setter
-    def hour(self):
-        self.hora = str(super().hora)
 

@@ -17,9 +17,11 @@ class Sampler:
         self._var = ''
 
     def peticion(self):
+        print("Sampler.peticion()")
         self._api = requests.get("https://api.openweathermap.org/data/2.5/onecall?lat=18.85&lon=-97.1&exclude=hourly,minutely&appid=75b14024248b0bd503079edfc127842c")
         self._api = self._api.json()
         self._var = self._api['daily']
+        print(self._api)
 
     def uno(self, tipo):
         for self.i in self._var:

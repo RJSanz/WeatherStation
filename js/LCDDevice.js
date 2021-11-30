@@ -16,6 +16,8 @@ function actualizar(){
     var d = document.getElementById("d");
     var r = document.getElementById("r");
 
+    var di = document.getElementById("di").value
+
     const websocket = new WebSocket("ws://localhost:5678/");
     websocket.onmessage = ({ data }) => {
         const obj = JSON.parse(data);
@@ -27,14 +29,33 @@ function actualizar(){
         roc.innerHTML = obj.roc.toFixed(2) + "°C";
         press.innerHTML = obj.press + "hPa";
         vel.innerHTML = obj.vel + "m/s";
-        dir.innerHTML = obj.dir + "°";
+        if(di == "desconecta"){
+            dir.innerHTML = obj.dir + "°";
+            d.innerHTML = obj.dv + "°";
+        }
         h.innerHTML = obj.hu + "g/m3";
         t.innerHTML = obj.te.toFixed(2) + "°C";
         s.innerHTML = obj.st.toFixed(2) + "°C";
         r.innerHTML = obj.pr.toFixed(2) + "°C";
         p.innerHTML = obj.pa + "hPa";
         v.innerHTML = obj.vv + "m/s";
-        d.innerHTML = obj.dv + "°";
+
 
     };
+}
+
+function dv(){
+    var di = document.getElementById("di").value;
+    alert(di);
+    if(di == "desconecta"){
+        document.getElementById("Direccion").innerHTML = "Desconectado";
+        document.getElementById("d").innerHTML = "Desconectado";
+        document.getElementById("di").innerHTML = "Conectar";
+        document.getElementById("di").value = "conecta";
+    }
+    else{
+        document.getElementById("di").innerHTML = "Desconectar";
+        document.getElementById("di").value = "desconecta";
+    }
+
 }
