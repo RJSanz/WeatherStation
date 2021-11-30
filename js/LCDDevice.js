@@ -73,6 +73,8 @@ function dv(){
     else{
         document.getElementById("di").innerHTML = "Desconectar";
         document.getElementById("di").value = "desconecta";
+        document.getElementById("Direccion").innerHTML = "Conectando";
+        document.getElementById("d").innerHTML = "Conectando";
     }
 
 }
@@ -87,6 +89,8 @@ function vv(){
     else{
         document.getElementById("vi").innerHTML = "Desconectar";
         document.getElementById("vi").value = "desconecta";
+        document.getElementById("Velocidad").innerHTML = "Conectando";
+        document.getElementById("v").innerHTML = "Conectando";
     }
 
 }
@@ -102,6 +106,8 @@ function st(){
     else{
         document.getElementById("si").innerHTML = "Desconectar";
         document.getElementById("si").value = "desconecta";
+        document.getElementById("Sensacion").innerHTML = "Conectando";
+        document.getElementById("s").innerHTML = "Conectando";
     }
 
 }
@@ -117,6 +123,8 @@ function te(){
     else{
         document.getElementById("ti").innerHTML = "Desconectar";
         document.getElementById("ti").value = "desconecta";
+        document.getElementById("Temperatura").innerHTML = "Conectando";
+        document.getElementById("t").innerHTML = "Conectando";
     }
 
 }
@@ -132,6 +140,8 @@ function pr(){
     else{
         document.getElementById("ri").innerHTML = "Desconectar";
         document.getElementById("ri").value = "desconecta";
+        document.getElementById("Rocio").innerHTML = "Conectando";
+        document.getElementById("r").innerHTML = "Conectando";
     }
 
 }
@@ -147,6 +157,8 @@ function hu(){
     else{
         document.getElementById("hi").innerHTML = "Desconectar";
         document.getElementById("hi").value = "desconecta";
+        document.getElementById("Humedad").innerHTML = "Conectando";
+        document.getElementById("h").innerHTML = "Conectando";
     }
 
 }
